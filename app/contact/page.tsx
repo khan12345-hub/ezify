@@ -22,21 +22,20 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title={<>Let&apos;s <span className="text-grad">talk.</span></>}
+        title={<>Let&apos;s <span className="accent">talk.</span></>}
         subtitle="Hiring, looking for a service, or exploring a partnership? Send us a message and the right team will reach out."
       />
 
-      <section className="section section-dark">
-        <div className="glow-tr" />
-        <div className="container relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="pt-16">
+        <div className="container grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {INFO.map((i, idx) => (
             <Reveal key={i.label} delay={(idx % 4) * 0.07}>
-              <div className="card-dark h-full p-6">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-blue to-teal text-white">
+              <div className="card h-full p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-soft text-brand">
                   <i.icon className="h-5 w-5" />
                 </span>
-                <p className="mt-4 text-xs uppercase tracking-wider text-paper-muted">{i.label}</p>
-                <p className="mt-1 font-semibold text-paper">{i.value}</p>
+                <p className="mt-6 text-sm text-ink-muted">{i.label}</p>
+                <p className="mt-1 font-semibold">{i.value}</p>
               </div>
             </Reveal>
           ))}

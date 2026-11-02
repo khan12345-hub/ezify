@@ -1,33 +1,43 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Caveat } from "next/font/google";
+import { Inter, Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 
-const sans = Plus_Jakarta_Sans({
+const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const script = Caveat({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-script",
-  weight: ["600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: "400",
+  style: "italic",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ezify — Multi-Service Solutions, One Brand",
+  title: "Ezify — One Team for Your Whole Business",
   description:
-    "Ezify is a multi-service company delivering website development, e-commerce, cleaning and security solutions for businesses and individuals.",
+    "Ezify provides website development, e-commerce, sales operations, marketing and accounting services for businesses and individuals.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${script.variable}`}>
+    <html lang="en" className={`${sans.variable} ${display.variable} ${serif.variable}`}>
       <body className="min-h-screen">
+        <SmoothScroll />
+        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />

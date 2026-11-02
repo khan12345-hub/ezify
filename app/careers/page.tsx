@@ -1,27 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Compass, GraduationCap, Laptop, TrendingUp } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { ContactCTA } from "@/components/contact-cta";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Careers — Ezify",
-  description: "Join Ezify and build your career across technology, commerce and essential services.",
+  description: "Join Ezify and build your career across web, e-commerce, sales, marketing and accounting.",
 };
 
 const PERKS = [
-  "Work across multiple industries",
-  "Clear growth paths & mentorship",
-  "Hybrid & remote-friendly roles",
-  "Be part of a fast-growing group",
+  { icon: Compass, text: "Work across multiple industries" },
+  { icon: GraduationCap, text: "Clear growth paths & mentorship" },
+  { icon: Laptop, text: "Hybrid & remote-friendly roles" },
+  { icon: TrendingUp, text: "Be part of a fast-growing group" },
 ];
 
 const ROLES = [
   { title: "Full-Stack Developer", team: "Technology", type: "Full-time" },
   { title: "E-Commerce Specialist", team: "E-Commerce", type: "Full-time" },
-  { title: "Operations Supervisor", team: "Cleaning Services", type: "Full-time" },
-  { title: "Security Officer", team: "Security Services", type: "Shift" },
+  { title: "UI/UX Designer", team: "Technology", type: "Full-time" },
+  { title: "Store Operations Associate", team: "E-Commerce", type: "Part-time" },
+  { title: "Sales Operations Coordinator", team: "Sales Operations", type: "Full-time" },
+  { title: "Digital Marketing Executive", team: "Marketing", type: "Full-time" },
+  { title: "Accounts Assistant", team: "Accounting", type: "Full-time" },
 ];
 
 export default function CareersPage() {
@@ -29,38 +32,42 @@ export default function CareersPage() {
     <>
       <PageHero
         eyebrow="Careers"
-        title={<>Build your career <span className="text-grad">with Ezify.</span></>}
-        subtitle="We're always looking for talented people across technology, commerce and essential services. Find where you fit."
+        title={<>Build your career <span className="accent">with Ezify.</span></>}
+        subtitle="We're always looking for talented people across technology, sales, marketing and finance. Find where you fit."
       />
 
-      <section className="section section-dark">
-        <div className="glow-tl" />
-        <div className="container relative">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="section">
+        <div className="container">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PERKS.map((p, i) => (
-              <Reveal key={p} delay={(i % 4) * 0.07}>
-                <div className="card-dark flex h-full items-center gap-3 p-5 text-sm font-semibold text-paper">
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-blue to-teal" />
-                  {p}
+              <Reveal key={p.text} delay={(i % 4) * 0.07}>
+                <div className="card flex h-full flex-col gap-6 p-6">
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-soft text-brand">
+                    <p.icon className="h-5 w-5" />
+                  </span>
+                  <p className="font-display text-lg font-medium leading-snug tracking-tight">{p.text}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
-          <h2 className="mt-16 text-[clamp(1.6rem,3.4vw,2.4rem)] text-paper">Open positions</h2>
-          <div className="mt-6 overflow-hidden rounded-2xl border border-[color:var(--line-dark)] bg-white/[0.03]">
+          <div className="mt-20 flex items-end justify-between gap-4">
+            <h2 className="text-[clamp(1.8rem,3.4vw,2.6rem)]">Open positions</h2>
+            <p className="text-sm text-ink-muted">{ROLES.length} roles</p>
+          </div>
+          <div className="card mt-6 overflow-hidden">
             {ROLES.map((r) => (
               <Link
                 key={r.title}
                 href="/contact"
-                className="group flex items-center justify-between gap-4 border-b border-[color:var(--line-dark)] p-5 transition-colors last:border-0 hover:bg-white/[0.05]"
+                className="group flex items-center justify-between gap-4 border-b border-line p-5 transition-colors last:border-0 hover:bg-bg sm:p-6"
               >
                 <div>
-                  <h3 className="font-bold text-paper">{r.title}</h3>
-                  <p className="text-sm text-paper-muted">{r.team} · {r.type}</p>
+                  <h3 className="text-xl">{r.title}</h3>
+                  <p className="mt-1 text-sm text-ink-muted">{r.team} · {r.type}</p>
                 </div>
-                <span className="link-more">
-                  Apply <ArrowUpRight className="h-4 w-4" />
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                  <ArrowUpRight className="h-4 w-4" />
                 </span>
               </Link>
             ))}

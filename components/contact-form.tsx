@@ -2,28 +2,28 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Check } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
+import { SERVICES } from "@/lib/content";
+import { cn } from "@/lib/cn";
 
-const SERVICES = ["Website Development", "E-Commerce", "Cleaning Services", "Security Services", "Other"];
-
-const field =
-  "w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/60 focus:border-white focus:bg-white/15";
+const OPTIONS = [...SERVICES.map((s) => s.title), "Something else"];
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [picked, setPicked] = useState<string>(OPTIONS[0]);
 
   if (sent) {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
+        initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-2xl border border-white/25 bg-white/10 p-8 text-center text-white"
+        className="flex min-h-[340px] flex-col items-center justify-center text-center"
       >
-        <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-teal">
+        <span className="grid h-14 w-14 place-items-center rounded-full bg-tint-mint text-[#16794f]">
           <Check className="h-7 w-7" />
         </span>
-        <h3 className="mt-5 text-xl font-bold">Message sent!</h3>
-        <p className="mt-1 text-sm text-white/80">We&apos;ll get back to you within one business day.</p>
+        <h3 className="mt-5 text-2xl">Message sent!</h3>
+        <p className="mt-1 text-sm text-ink-muted">We&apos;ll get back to you within one business day.</p>
       </motion.div>
     );
   }
@@ -36,19 +36,29 @@ export function ContactForm() {
       }}
       className="grid gap-4 sm:grid-cols-2"
     >
-      <input name="name" required placeholder="Your Name *" className={field} />
-      <input name="email" type="email" required placeholder="Email Address *" className={field} />
-      <select name="service" className={field} defaultValue="">
-        <option value="" disabled className="text-ink">Service Interest</option>
-        {SERVICES.map((s) => (
-          <option key={s} className="text-ink">{s}</option>
-        ))}
-      </select>
-      <input name="subject" placeholder="Your Message *" className={field} />
-      <textarea name="message" rows={4} required placeholder="Tell us about your project…" className={`${field} sm:col-span-2 resize-none`} />
-      <button type="submit" className="btn btn-light sm:col-span-2">
-        Send Message
-        <Send className="h-4 w-4" />
+      <fieldset className="sm:col-span-2">
+        <legend className="mb-2.5 text-sm font-medium">I&apos;m interested in</legend>
+        <div className="flex flex-wrap gap-2">
+          {OPTIONS.map((o) => (
+            <label
+              key={o}
+              className={cn(
+                "cursor-pointer rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+                picked === o ? "border-ink bg-ink text-white" : "border-line text-ink-muted hover:border-ink hover:text-ink",
+              )}
+            >
+              <input type="radio" name="service" value={o} checked={picked === o} onChange={() => setPicked(o)} className="sr-only" />
+              {o}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <input name="name" required placeholder="Your name *" className="field" />
+      <input name="email" type="email" required placeholder="Email address *" className="field" />
+      <textarea name="message" rows={4} required placeholder="Tell us about your project…" className="field resize-none sm:col-span-2" />
+      <button type="submit" className="btn btn-ink sm:col-span-2">
+        Send message
+        <ArrowUpRight className="h-4 w-4" />
       </button>
     </form>
   );

@@ -10,16 +10,12 @@ export function PageHero({
   subtitle: string;
 }) {
   return (
-    <section className="bg-navy-grad relative overflow-hidden pt-36 pb-16 text-paper">
-      <div className="grid-lines pointer-events-none absolute inset-0 opacity-50" />
-      <div className="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-blue/20 blur-[110px]" />
-      <div className="container relative">
+    <section className="border-b border-line pt-36 pb-16 lg:pt-44 lg:pb-20">
+      <div className="container">
         <Reveal className="max-w-3xl">
-          <p className="kicker">{eyebrow}</p>
-          <h1 className="mt-4 text-[clamp(2.3rem,5vw,4rem)] font-extrabold leading-[1.05]">
-            {title}
-          </h1>
-          <p className="mt-5 max-w-xl text-paper-muted">{subtitle}</p>
+          <p className="eyebrow">{eyebrow}</p>
+          <h1 className="mt-5 text-[clamp(2.6rem,6vw,4.8rem)] leading-[1]">{title}</h1>
+          <p className="mt-6 max-w-xl text-[1.08rem] text-ink-muted">{subtitle}</p>
         </Reveal>
       </div>
     </section>

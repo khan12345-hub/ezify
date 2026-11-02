@@ -1,22 +1,24 @@
 import { Hero } from "@/components/hero";
+import { Statement } from "@/components/statement";
 import { Services } from "@/components/services";
-import { Brands } from "@/components/brands";
-import { About } from "@/components/about";
+import { Process } from "@/components/process";
 import { Why } from "@/components/why";
-import { Projects } from "@/components/projects";
+import { Brands } from "@/components/brands";
 import { Testimonials } from "@/components/testimonials";
+import { Faq } from "@/components/faq";
 import { ContactCTA } from "@/components/contact-cta";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <Statement />
       <Services />
-      <Brands />
-      <About />
+      <Process />
       <Why />
-      <Projects />
       <Testimonials />
+      <Brands />
+      <Faq />
       <ContactCTA />
     </>
   );
