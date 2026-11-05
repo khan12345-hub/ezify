@@ -148,10 +148,66 @@ export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [
   },
 ];
 
+/* ── Team ─────────────────────────────────────────────────────
+   Placeholder people — replace names, roles and bios with the real team.
+   Add `photo: "/images/team/<file>.jpg"` to show a portrait instead of initials. */
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  /** A service title from SERVICES; leaders use "Leadership". */
+  dept: string;
+  bio?: string;
+  photo?: string;
+  linkedin?: string;
+};
+
+export const LEADERS: TeamMember[] = [
+  {
+    name: "Ayesha Rahman",
+    role: "Founder & CEO",
+    dept: "Leadership",
+    bio: "Started Ezify to give growing businesses one team they can rely on for everything.",
+  },
+  {
+    name: "Omar Siddiqui",
+    role: "Head of Technology",
+    dept: "Leadership",
+    bio: "Leads our web and e-commerce teams, from first wireframe to launch day.",
+  },
+  {
+    name: "Hannah Clarke",
+    role: "Head of Operations",
+    dept: "Leadership",
+    bio: "Keeps sales, marketing and accounting running smoothly for every client.",
+  },
+];
+
+export const TEAM: TeamMember[] = [
+  { name: "Daniel Okafor", role: "Lead Developer", dept: "Website Development" },
+  { name: "Sara Malik", role: "UI/UX Designer", dept: "Website Development" },
+  { name: "Liam Turner", role: "E-Commerce Manager", dept: "E-Commerce Solutions" },
+  { name: "Fatima Noor", role: "Store Specialist", dept: "E-Commerce Solutions" },
+  { name: "Ethan Brooks", role: "Sales Ops Lead", dept: "Sales Operations" },
+  { name: "Zara Hussain", role: "CRM Specialist", dept: "Sales Operations" },
+  { name: "Maya Patel", role: "Marketing Lead", dept: "Marketing" },
+  { name: "Noah Williams", role: "Content & Social", dept: "Marketing" },
+  { name: "Imran Qureshi", role: "Senior Accountant", dept: "Accounting" },
+  { name: "Chloe Evans", role: "Bookkeeper", dept: "Accounting" },
+];
+
+export const VALUES: { icon: LucideIcon; title: string; desc: string }[] = [
+  { icon: BadgeCheck, title: "Own the outcome", desc: "We measure ourselves by your results, not by hours spent." },
+  { icon: Headset, title: "Say it simply", desc: "Clear updates, plain language and no surprises on the invoice." },
+  { icon: Rocket, title: "Keep improving", desc: "Every project teaches us something we bring to the next one." },
+  { icon: Users, title: "Win together", desc: "Five teams, one goal — your business growing." },
+];
+
 export const NAV = [
   { href: "/", label: "Home" },
   { href: "/businesses", label: "Services" },
   { href: "/businesses#brands", label: "Brands" },
+  { href: "/team", label: "Team" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
