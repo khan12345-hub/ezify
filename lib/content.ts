@@ -298,7 +298,7 @@ export const LEADERS: TeamMember[] = [
 export const TEAM: TeamMember[] = [
   // Digital Marketing
   { name: "Rubab Haider", initials: "RH", role: "Head of Digital Marketing", dept: "Digital Marketing" },
-  { name: "Usman Javed", initials: "UJ", role: "Ads Manager", dept: "Digital Marketing" },
+  { name: "Usman Javed", initials: "UJ", role: "Performance Marketing Manager", dept: "Digital Marketing" },
   { name: "Mohsin Bashir", initials: "MB", role: "Graphics Manager", dept: "Digital Marketing" },
   { name: "Haris Ahmad", initials: "HA", role: "Social Media Manager", dept: "Digital Marketing" },
   { name: "Athar Hussain", initials: "AH", role: "SEO Manager", dept: "Digital Marketing" },
