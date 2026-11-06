@@ -113,7 +113,7 @@ function BrandLink({ tabbable = true, ...props }: CardProps & { tabbable?: boole
   );
 }
 
-/** "Star Employment" → "SE", "247 Gard" → "247". */
+/** "Maple Ridge Staffing" → "MR", "247 Gard" → "247". */
 function initials(name: string) {
   const words = name.split(" ");
   if (/^\d+$/.test(words[0])) return words[0];

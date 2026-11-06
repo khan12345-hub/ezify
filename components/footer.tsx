@@ -47,7 +47,7 @@ export function Footer() {
         </FooterCol>
 
         <FooterCol title="Services" className="lg:col-span-3">
-          {HOME_SERVICES.map((s) => (
+          {[...HOME_SERVICES].sort((a, b) => a.title.length - b.title.length).map((s) => (
             <li key={s.title} className="whitespace-nowrap"><Link href="/#services" className="hover:text-ink">{s.title}</Link></li>
           ))}
         </FooterCol>

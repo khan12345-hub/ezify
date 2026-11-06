@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { LEADERS, TEAM, VALUES, SERVICES, TONES, CONTACT, type TeamMember, type Tone } from "@/lib/content";
+import { LEADERS, TEAM, VALUES, HOME_SERVICES as SERVICES, TONES, type TeamMember, type Tone } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
 import { SplitWords } from "./motion/split-words";
@@ -68,11 +68,10 @@ function Avatar({ member, className, big, tone: toneKey }: { member: TeamMember;
 }
 
 export function TeamIntro() {
-  const offices = CONTACT.address.split("·").length;
   const stats = [
-    { value: String(LEADERS.length + TEAM.length), label: "Team members" },
-    { value: String(SERVICES.length), label: "Departments" },
-    { value: String(offices), label: "Offices" },
+    { value: "7", label: "In-house departments" },
+    { value: "2", label: "Countries served (Canada & USA)" },
+    { value: "1", label: "Point of contact" },
   ];
   // founder first, then one person from each department so the stack shows every colour
   const stack = [LEADERS[0], ...SERVICES.map((s) => TEAM.find((m) => m.dept === s.title)).filter((m): m is TeamMember => !!m)];
@@ -98,14 +97,14 @@ export function TeamIntro() {
             <p className="eyebrow">Our team</p>
           </Reveal>
           <h1 className="mt-5 text-[clamp(2.8rem,6.4vw,5.4rem)] leading-[0.98]">
-            <SplitWords text="The people behind" delay={0.05} />{" "}
+            <SplitWords text="Meet the minds behind" delay={0.05} />{" "}
             <SplitWords text="Ezify." delay={0.25} wordClassName="accent pr-[0.06em]" />
           </h1>
           <Reveal delay={0.3}>
             <p className="mt-6 max-w-xl text-[1.08rem] text-ink-muted">
-              Designers, developers, marketers, sales specialists and accountants —
-              one team that works together so your business doesn&apos;t have to
-              juggle five.
+              Behind every result we deliver is a team of developers, marketers, sales
+              specialists and accountants working for your business. One partner, one
+              point of contact, and experts in every area you need to grow.
             </p>
           </Reveal>
 
@@ -131,7 +130,7 @@ export function TeamIntro() {
                 ))}
               </div>
               <p className="text-sm text-ink-muted">
-                and growing — <Link href="/careers" className="font-semibold text-ink underline-offset-4 hover:underline">join us</Link>
+                and growing · <Link href="/careers" className="font-semibold text-ink underline-offset-4 hover:underline">join us</Link>
               </p>
             </div>
           </Reveal>
@@ -165,14 +164,14 @@ export function Leadership() {
               <p className="eyebrow">Leadership</p>
             </Reveal>
             <h2 className="h-section mt-4">
-              <SplitWords text="Leading the" inView />{" "}
-              <SplitWords text="way" inView delay={0.15} wordClassName="accent pr-[0.06em]" />
+              <SplitWords text="The leaders behind" inView />{" "}
+              <SplitWords text="your results" inView delay={0.15} wordClassName="accent pr-[0.06em]" />
             </h2>
           </div>
           <Reveal delay={0.1} className="md:col-span-5">
             <p className="text-ink-muted">
-              The people who set the standard for every project — and who you can
-              always reach when it matters.
+              Experienced leaders who keep every project on track, every team accountable
+              and every client informed, so you always know who&rsquo;s responsible for your results.
             </p>
           </Reveal>
         </div>
@@ -213,22 +212,21 @@ export function TeamGrid() {
   return (
     <section className="section border-y border-line bg-surface">
       <div className="container">
-        <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div className="mb-10 flex flex-col gap-6">
           <div>
             <Reveal>
               <p className="eyebrow">The whole team</p>
             </Reveal>
             <h2 className="h-section mt-4">
-              <SplitWords text="Five teams," inView />{" "}
-              <SplitWords text="one" inView delay={0.15} wordClassName="accent pr-[0.06em]" />{" "}
-              <SplitWords text="Ezify" inView delay={0.2} />
+              <SplitWords text="Every expert" inView />{" "}
+              <SplitWords text="your business needs" inView delay={0.15} wordClassName="accent pr-[0.06em]" />
             </h2>
           </div>
 
           {/* department filter */}
           <Reveal delay={0.1}>
             <LayoutGroup>
-              <div role="tablist" aria-label="Filter by department" className="flex flex-wrap gap-1.5 rounded-[22px] border border-line bg-bg p-1.5 lg:max-w-[640px]">
+              <div role="tablist" aria-label="Filter by department" className="flex flex-wrap gap-1.5 rounded-[22px] border border-line bg-bg p-1.5 lg:w-fit">
                 {tabs.map((t) => (
                   <button
                     key={t}
@@ -247,7 +245,7 @@ export function TeamGrid() {
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
-                    <span className="relative">{t.replace(" Solutions", "")}</span>
+                    <span className="relative">{t}</span>
                   </button>
                 ))}
               </div>
@@ -272,13 +270,30 @@ export function TeamGrid() {
                   <h3 className="text-lg leading-tight">{m.name}</h3>
                   <p className="mt-0.5 text-sm text-ink-muted">{m.role}</p>
                   <p className={cn("mt-2 inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium", TONES[toneFor(m.dept)].bg, TONES[toneFor(m.dept)].text)}>
-                    {m.dept.replace(" Solutions", "")}
+                    {m.tag ?? m.dept}
                   </p>
                 </div>
               </motion.article>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* departments with no listed members yet */}
+        {shown.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-[24px] border border-dashed border-line bg-bg px-6 py-14 text-center"
+          >
+            <p className="font-display text-xl font-semibold">Our {active} team is growing.</p>
+            <p className="mt-2 text-sm text-ink-muted">
+              New faces joining soon.{" "}
+              <Link href="/careers" className="font-semibold text-ink underline-offset-4 hover:underline">
+                Join us
+              </Link>
+            </p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
@@ -293,8 +308,8 @@ export function Values() {
             <p className="eyebrow">How we work</p>
           </Reveal>
           <h2 className="h-section mt-4">
-            <SplitWords text="What we" inView />{" "}
-            <SplitWords text="believe" inView delay={0.12} wordClassName="accent pr-[0.06em]" />
+            <SplitWords text="Our promise" inView />{" "}
+            <SplitWords text="to you" inView delay={0.12} wordClassName="accent pr-[0.06em]" />
           </h2>
         </div>
 
@@ -324,7 +339,7 @@ export function Values() {
 export function JoinTeam() {
   return (
     <section className="pb-[clamp(4.5rem,9vw,7.5rem)]">
-      <ScrollMarquee text="Join the team" outline />
+      <ScrollMarquee text={["Work with us", "Grow with Ezify"]} outline />
 
       <div className="container mt-10">
         <Reveal y={40}>
@@ -343,18 +358,19 @@ export function JoinTeam() {
             />
             <div className="relative flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
               <div>
-                <p className="text-sm font-semibold text-white/75">We&apos;re hiring</p>
+                <p className="text-sm font-semibold text-white/75">Let&rsquo;s talk</p>
                 <h2 className="mt-4 max-w-2xl text-[clamp(2.2rem,4.6vw,3.8rem)] text-white">
-                  Want to build something <span className="font-serif font-normal italic">great</span> with us?
+                  Ready to put this team to <span className="font-serif font-normal italic">work</span> for you?
                 </h2>
-                <p className="mt-5 max-w-md text-white/80">
-                  We&apos;re always looking for talented people across technology,
-                  sales, marketing and finance.
+                <p className="mt-5 max-w-lg text-white/80">
+                  Tell us what your business needs, and we&rsquo;ll match you with the right
+                  specialists from our seven departments. Get a clear plan and quote within
+                  one business day.
                 </p>
               </div>
               <Magnetic>
-                <Link href="/careers" className="btn btn-white group shrink-0">
-                  See open roles
+                <Link href="/contact" className="btn btn-white group shrink-0">
+                  Get a free quote
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
                 </Link>
               </Magnetic>

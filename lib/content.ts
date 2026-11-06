@@ -173,23 +173,20 @@ export type Brand = {
   url?: string;
 };
 
+/** Placeholder projects (no links). Replace with real clients when ready. */
 export const BRANDS: Brand[] = [
-  { name: "Beddora", category: "Home Essentials", image: "/images/brand-beddora.jpg", url: "https://beddora.ca" },
-  { name: "Star Employment", category: "Industrial Staffing", url: "https://staremployment.ca" },
-  { name: "ULS Freight", category: "Freight Shipping", url: "https://ulsfreight.ca" },
-  { name: "247 Gard", category: "Site Protection", url: "https://247gard.com" },
-  { name: "YTC Healthcare", category: "Healthcare Staffing", url: "https://ytchealthcare.com" },
-  { name: "Saldan Homes", category: "Real Estate", url: "https://saldanhomes.com" },
-  { name: "Zone Placements", category: "Skilled Trades Placement", url: "https://zoneplacements.ca" },
-  { name: "Cleaning 365 Services", category: "Commercial Cleaning", image: "/images/cleaning.jpg", url: "https://cleaning365services.com" },
-  { name: "E North Logistics", category: "Supply Chain Logistics", url: "https://enorthlogistics.com" },
-  { name: "Next Employment", category: "Career Placement", url: "https://nextemployment.ca" },
-  { name: "Northern Linens", category: "Hospitality Linens", url: "https://northernlinens.com" },
-  { name: "G Force Security", category: "Event & Patrol Security", url: "https://gforcesecurity.ca" },
-  { name: "Univerca Staffing", category: "Office Recruitment", url: "https://univerca.ca" },
-  { name: "RSD Investment Group", category: "Investments" },
-  { name: "Easy Workforce", category: "Temporary Workforce", url: "https://easyworkforce.ca" },
-  { name: "Jobs For U", category: "Job Matching", url: "https://jobsforu.ca" },
+  { name: "Maple Ridge Staffing", category: "Industrial Staffing" },
+  { name: "Northline Freight", category: "Freight Shipping" },
+  { name: "Harbor Home Co.", category: "Home Essentials" },
+  { name: "Summit Security", category: "Event & Patrol Security" },
+  { name: "BrightCare Health", category: "Healthcare Staffing" },
+  { name: "Cedar Point Realty", category: "Real Estate" },
+  { name: "Polar Logistics", category: "Supply Chain Logistics" },
+  { name: "FreshNest Cleaning", category: "Commercial Cleaning" },
+  { name: "Urban Trades Group", category: "Skilled Trades Placement" },
+  { name: "Lakeview Linens", category: "Hospitality Linens" },
+  { name: "Crestway Capital", category: "Investments" },
+  { name: "PeakHire Solutions", category: "Office Recruitment" },
 ];
 
 export const FEATURES: { icon: LucideIcon; title: string; desc: string }[] = [
@@ -264,8 +261,10 @@ export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [
 export type TeamMember = {
   name: string;
   role: string;
-  /** A service title from SERVICES; leaders use "Leadership". */
+  /** A department title from HOME_SERVICES (drives the team filter); leaders use "Leadership". */
   dept: string;
+  /** Label shown on the member card; defaults to dept. */
+  tag?: string;
   bio?: string;
   photo?: string;
   linkedin?: string;
@@ -276,40 +275,40 @@ export const LEADERS: TeamMember[] = [
     name: "Ayesha Rahman",
     role: "Founder & CEO",
     dept: "Leadership",
-    bio: "Started Ezify to give growing businesses one team they can rely on for everything.",
+    bio: "Built Ezify so growing businesses would have one team they could trust with everything.",
   },
   {
     name: "Omar Siddiqui",
     role: "Head of Technology",
     dept: "Leadership",
-    bio: "Leads our web and e-commerce teams, from first wireframe to launch day.",
+    bio: "Leads our web and e-commerce teams, from the first sketch to the day your site goes live.",
   },
   {
     name: "Hannah Clarke",
     role: "Head of Operations",
     dept: "Leadership",
-    bio: "Keeps sales, marketing and accounting running smoothly for every client.",
+    bio: "Makes sure sales, marketing and accounting run on time, every time, for every client.",
   },
 ];
 
 export const TEAM: TeamMember[] = [
-  { name: "Daniel Okafor", role: "Lead Developer", dept: "Website Development" },
-  { name: "Sara Malik", role: "UI/UX Designer", dept: "Website Development" },
-  { name: "Liam Turner", role: "E-Commerce Manager", dept: "E-Commerce Solutions" },
-  { name: "Fatima Noor", role: "Store Specialist", dept: "E-Commerce Solutions" },
-  { name: "Ethan Brooks", role: "Sales Ops Lead", dept: "Sales Operations" },
-  { name: "Zara Hussain", role: "CRM Specialist", dept: "Sales Operations" },
-  { name: "Maya Patel", role: "Marketing Lead", dept: "Marketing" },
-  { name: "Noah Williams", role: "Content & Social", dept: "Marketing" },
-  { name: "Imran Qureshi", role: "Senior Accountant", dept: "Accounting" },
-  { name: "Chloe Evans", role: "Bookkeeper", dept: "Accounting" },
+  { name: "Daniel Okafor", role: "Lead Developer", dept: "IT Solutions", tag: "Website Development" },
+  { name: "Sara Malik", role: "UI/UX Designer", dept: "IT Solutions", tag: "Website Development" },
+  { name: "Liam Turner", role: "E-Commerce Manager", dept: "Supply Chain & E-Commerce", tag: "E-Commerce" },
+  { name: "Fatima Noor", role: "Store Specialist", dept: "Supply Chain & E-Commerce", tag: "E-Commerce" },
+  { name: "Ethan Brooks", role: "Sales Ops Lead", dept: "Sales & Business Development", tag: "Sales Operations" },
+  { name: "Zara Hussain", role: "CRM Specialist", dept: "Sales & Business Development", tag: "Sales Operations" },
+  { name: "Maya Patel", role: "Marketing Lead", dept: "Digital Marketing", tag: "Marketing" },
+  { name: "Noah Williams", role: "Content & Social Media", dept: "Digital Marketing", tag: "Marketing" },
+  { name: "Imran Qureshi", role: "Senior Accountant", dept: "Accounts & Finance", tag: "Accounting" },
+  { name: "Chloe Evans", role: "Bookkeeper", dept: "Accounts & Finance", tag: "Accounting" },
 ];
 
 export const VALUES: { icon: LucideIcon; title: string; desc: string }[] = [
-  { icon: BadgeCheck, title: "Own the outcome", desc: "We measure ourselves by your results, not by hours spent." },
-  { icon: Headset, title: "Say it simply", desc: "Clear updates, plain language and no surprises on the invoice." },
-  { icon: Rocket, title: "Keep improving", desc: "Every project teaches us something we bring to the next one." },
-  { icon: Users, title: "Win together", desc: "Five teams, one goal — your business growing." },
+  { icon: BadgeCheck, title: "Results come first", desc: "You pay for outcomes, not hours. Every task we take on is measured by what it does for your business." },
+  { icon: Headset, title: "Clear communication", desc: "Regular updates, plain language and transparent pricing, with no surprises on your invoice." },
+  { icon: Rocket, title: "Constant improvement", desc: "We review what’s working and refine it, so your results keep getting better month after month." },
+  { icon: Users, title: "One team, one goal", desc: "Seven departments working together toward one thing: growing your business." },
 ];
 
 export const NAV = [

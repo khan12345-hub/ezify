@@ -11,20 +11,14 @@ export const metadata: Metadata = {
 };
 
 const PERKS = [
-  { icon: Compass, text: "Work across multiple industries" },
+  { icon: Compass, text: "Work with clients across industries" },
   { icon: GraduationCap, text: "Clear growth paths & mentorship" },
   { icon: Laptop, text: "Hybrid & remote-friendly roles" },
-  { icon: TrendingUp, text: "Be part of a fast-growing group" },
+  { icon: TrendingUp, text: "Be part of a fast-growing team" },
 ];
 
 const ROLES = [
-  { title: "Full-Stack Developer", team: "Technology", type: "Full-time" },
-  { title: "E-Commerce Specialist", team: "E-Commerce", type: "Full-time" },
-  { title: "UI/UX Designer", team: "Technology", type: "Full-time" },
   { title: "Store Operations Associate", team: "E-Commerce", type: "Part-time" },
-  { title: "Sales Operations Coordinator", team: "Sales Operations", type: "Full-time" },
-  { title: "Digital Marketing Executive", team: "Marketing", type: "Full-time" },
-  { title: "Accounts Assistant", team: "Accounting", type: "Full-time" },
 ];
 
 export default function CareersPage() {
@@ -33,7 +27,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title={<>Build your career <span className="accent">with Ezify.</span></>}
-        subtitle="We're always looking for talented people across technology, sales, marketing and finance. Find where you fit."
+        subtitle="Join a team that helps businesses across Canada and the USA grow every day. We’re hiring skilled, driven people across marketing, sales, technology, operations and finance. Find the role where you fit best."
       />
 
       <section className="section">
@@ -53,7 +47,7 @@ export default function CareersPage() {
 
           <div className="mt-20 flex items-end justify-between gap-4">
             <h2 className="text-[clamp(1.8rem,3.4vw,2.6rem)]">Open positions</h2>
-            <p className="text-sm text-ink-muted">{ROLES.length} roles</p>
+            <p className="text-sm text-ink-muted">{ROLES.length} {ROLES.length === 1 ? "role" : "roles"}</p>
           </div>
           <div className="card mt-6 overflow-hidden">
             {ROLES.map((r) => (

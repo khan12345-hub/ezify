@@ -21,9 +21,9 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
-        title={<>Let&apos;s <span className="accent">talk.</span></>}
-        subtitle="Hiring, looking for a service, or exploring a partnership? Send us a message and the right team will reach out."
+        eyebrow="Get in touch"
+        title={<>Let&rsquo;s build something big <span className="accent">together.</span></>}
+        subtitle="Every great partnership starts with a simple conversation. Tell us where your business is today and where you want it to be, and we’ll show you how we can help you get there."
       />
 
       <section className="pt-16">
