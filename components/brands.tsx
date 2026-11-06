@@ -7,7 +7,7 @@ import { Reveal } from "./reveal";
 
 /** Placeholder tile colours for brands that don't have a photo yet. */
 const TILE_TONES = [
-  "bg-tint-blue text-[#2440d8]",
+  "bg-tint-blue text-[#0b78b2]",
   "bg-tint-peach text-[#b4511f]",
   "bg-tint-mint text-[#16794f]",
   "bg-tint-lilac text-[#6a3fd4]",
@@ -80,9 +80,9 @@ function BrandsSlider() {
                   <li
                     key={`${copy}-${b.name}`}
                     aria-hidden={copy === 1 || undefined}
-                    className="w-[240px] shrink-0 sm:w-[280px]"
+                    className="w-[220px] shrink-0 sm:w-[260px] lg:w-[290px]"
                   >
-                    <BrandLink brand={b} index={r * half + i} compact tabbable={copy === 0} />
+                    <BrandLink brand={b} index={r * half + i} tabbable={copy === 0} />
                   </li>
                 )),
               )}

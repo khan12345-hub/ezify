@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 export function SpotlightCard({ children, className }: { children: ReactNode; className?: string }) {
   const mx = useMotionValue(-200);
   const my = useMotionValue(-200);
-  const bg = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, rgba(58,87,240,0.14), transparent 70%)`;
+  const bg = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, rgba(21,144,208,0.14), transparent 70%)`;
 
   return (
     <div

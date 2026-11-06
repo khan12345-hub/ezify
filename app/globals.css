@@ -2,20 +2,21 @@
 
 /* ───────────────────────────────────────────────────────────
    Ezify — Warm light theme
-   Off-white paper · ink · cobalt accent · one pastel per service.
+   Off-white paper · logo navy ink · logo sky-blue accent · one pastel per service.
    ─────────────────────────────────────────────────────────── */
 :root {
   --bg: #f7f5f0;
   --surface: #ffffff;
-  --ink: #15171c;
-  --ink-muted: #5b6170;
+  --ink: #17283b;         /* logo navy */
+  --ink-muted: #56637a;
   --line: #e6e1d6;
 
-  --brand: #3a57f0;
-  --brand-deep: #2440d8;
-  --brand-soft: #e8ecff;
+  --brand: #1590d0;       /* logo sky, deepened so white text stays readable */
+  --brand-deep: #0b78b2;
+  --brand-sky: #28ade3;   /* exact logo sky — decorative use only */
+  --brand-soft: #e2f3fb;
 
-  --tint-blue: #e8ecff;
+  --tint-blue: #e2f3fb;
   --tint-peach: #ffe9da;
   --tint-mint: #daf2e5;
   --tint-lilac: #eee6ff;
@@ -31,6 +32,7 @@
   --color-brand: var(--brand);
   --color-brand-deep: var(--brand-deep);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-sky: var(--brand-sky);
   --color-tint-blue: var(--tint-blue);
   --color-tint-peach: var(--tint-peach);
   --color-tint-mint: var(--tint-mint);
@@ -109,7 +111,7 @@
   .btn-primary { background: var(--brand); color: #fff; }
   .btn-primary:hover { background: var(--brand-deep); }
   .btn-ink { background: var(--ink); color: #fff; }
-  .btn-ink:hover { background: #2a2d35; }
+  .btn-ink:hover { background: #24394f; }
   .btn-outline { border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
   .btn-outline:hover { border-color: var(--ink); }
   .btn-white { background: #fff; color: var(--ink); }

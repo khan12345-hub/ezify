@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
 
 const AVATAR_TONES = [
-  "bg-tint-blue text-[#2440d8]",
+  "bg-tint-blue text-[#0b78b2]",
   "bg-tint-peach text-[#b4511f]",
   "bg-tint-mint text-[#16794f]",
   "bg-tint-lilac text-[#6a3fd4]",

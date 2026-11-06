@@ -9,7 +9,14 @@ import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
 import { SplitWords } from "./motion/split-words";
 
-export function Services() {
+const HOME_INTRO = {
+  lead: "Everything you need",
+  accent: "to grow.",
+  text: "Every big step forward starts with one smart move. Pick the team your business needs most right now, and watch what happens when the right people take over. Most of our clients start with one, and grow from there.",
+};
+
+/** `intro` overrides the heading/paragraph (the Services page uses its own copy; home uses HOME_INTRO). */
+export function Services({ intro = HOME_INTRO }: { intro?: typeof HOME_INTRO }) {
   const stackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: stackRef, offset: ["start start", "end end"] });
 
@@ -22,16 +29,12 @@ export function Services() {
               <p className="eyebrow">What we do</p>
             </Reveal>
             <h2 className="h-section mt-4">
-              <SplitWords text="Everything you need" inView />{" "}
-              <SplitWords text="to grow." inView delay={0.2} wordClassName="accent pr-[0.06em]" />
+              <SplitWords text={intro.lead} inView />{" "}
+              <SplitWords text={intro.accent} inView delay={0.2} wordClassName="accent pr-[0.06em]" />
             </h2>
           </div>
           <Reveal delay={0.1} className="md:col-span-5">
-            <p className="text-ink-muted">
-              Every big step forward starts with one smart move. Pick the team your
-              business needs most right now, and watch what happens when the right
-              people take over. Most of our clients start with one, and grow from there.
-            </p>
+            <p className="text-ink-muted">{intro.text}</p>
           </Reveal>
         </div>
 
@@ -70,7 +73,7 @@ function StackCard({
       <motion.article
         style={reduce ? undefined : { scale, transformOrigin: "50% 0%" }}
         className={cn(
-          "group relative grid overflow-hidden rounded-[32px] p-2 shadow-[0_-20px_50px_-30px_rgba(21,23,28,0.25)] lg:min-h-[520px] lg:grid-cols-2",
+          "group relative grid overflow-hidden rounded-[32px] p-2 shadow-[0_-20px_50px_-30px_rgba(23,40,59,0.25)] lg:grid-cols-[minmax(0,1fr)_minmax(0,540px)] lg:items-center",
           tone.bg,
         )}
       >
@@ -106,7 +109,8 @@ function StackCard({
           </div>
         </div>
 
-        <div className="relative min-h-[280px] overflow-hidden rounded-[26px] sm:min-h-[340px]">
+        {/* square box: 1200×1200 images show in full, no cropping */}
+        <div className="relative aspect-square overflow-hidden rounded-[26px]">
           {s.image ? (
             <img
               src={s.image}
@@ -117,7 +121,7 @@ function StackCard({
           ) : (
             <div className="absolute inset-0 grid place-items-center bg-white/60 p-6 sm:p-10" aria-hidden="true">
               <s.icon className={cn("absolute -bottom-10 -right-10 h-64 w-64 opacity-[0.07]", tone.text)} strokeWidth={1.2} />
-              <div className="relative w-full max-w-sm rounded-[24px] bg-surface p-5 shadow-[0_30px_60px_-30px_rgba(21,23,28,0.35)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-1deg]">
+              <div className="relative w-full max-w-sm rounded-[24px] bg-surface p-5 shadow-[0_30px_60px_-30px_rgba(23,40,59,0.35)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-1deg]">
                 {s.visual === "pipeline" && <Pipeline bar={tone.bar} />}
                 {s.visual === "campaign" && <Campaign bar={tone.bar} />}
                 {s.visual === "ledger" && <Ledger />}
@@ -230,7 +234,7 @@ function Automation({ bar }: { bar: string }) {
 function Ledger() {
   const rows = [
     { name: "Invoice #204", amount: "$1,240", status: "Paid", cls: "bg-tint-mint text-[#16794f]" },
-    { name: "Invoice #205", amount: "$860", status: "Sent", cls: "bg-tint-blue text-[#2440d8]" },
+    { name: "Invoice #205", amount: "$860", status: "Sent", cls: "bg-tint-blue text-[#0b78b2]" },
     { name: "Supplier bill", amount: "$310", status: "Due", cls: "bg-tint-butter text-[#8a6100]" },
   ];
   return (

@@ -49,7 +49,7 @@ function Avatar({ member, className, big, tone: toneKey }: { member: TeamMember;
           <div
             aria-hidden="true"
             className="absolute inset-0 opacity-40"
-            style={{ backgroundImage: "radial-gradient(rgba(21,23,28,0.12) 1px, transparent 1px)", backgroundSize: "16px 16px" }}
+            style={{ backgroundImage: "radial-gradient(rgba(23,40,59,0.12) 1px, transparent 1px)", backgroundSize: "16px 16px" }}
           />
           <span
             aria-hidden="true"
@@ -180,7 +180,7 @@ export function Leadership() {
         <div className="grid gap-4 md:grid-cols-3">
           {LEADERS.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1} y={50}>
-              <article className="group h-full rounded-[28px] border border-line bg-surface p-2 transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-30px_rgba(21,23,28,0.3)]">
+              <article className="group h-full rounded-[28px] border border-line bg-surface p-2 transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-30px_rgba(23,40,59,0.3)]">
                 <div className="relative">
                   <Avatar member={m} big tone={LEADER_TONES[i % LEADER_TONES.length]} className="aspect-[4/5] rounded-[22px]" />
                   <a
@@ -337,7 +337,7 @@ export function JoinTeam() {
             />
             <motion.div
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-[#8b6cff]/30 blur-2xl"
+              className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-brand-sky/40 blur-2xl"
               animate={{ x: [0, 60, 0] }}
               transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
             />

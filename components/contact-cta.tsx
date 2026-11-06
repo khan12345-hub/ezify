@@ -34,7 +34,7 @@ export function ContactCTA() {
           />
           <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-[#8b6cff]/30 blur-2xl"
+            className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-brand-sky/40 blur-2xl"
             animate={reduce ? undefined : { x: [0, 60, 0], y: [0, -20, 0] }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />

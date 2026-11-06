@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 const OPTIONS = [
@@ -48,16 +48,37 @@ export function ContactForm() {
     >
       <fieldset className="sm:col-span-2">
         <legend className="mb-2.5 text-sm font-medium">I&apos;m interested in</legend>
-        <div className="flex flex-wrap gap-2">
+        {/* the chosen option is submitted once, from here; chips and dropdown just set it */}
+        <input type="hidden" name="service" value={picked} />
+
+        {/* mobile: dropdown */}
+        <div className="relative sm:hidden">
+          <select
+            value={picked}
+            onChange={(e) => setPicked(e.target.value)}
+            aria-label="I'm interested in"
+            className="field cursor-pointer appearance-none pr-10"
+          >
+            {OPTIONS.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+          <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
+        </div>
+
+        {/* tablet & desktop: chips */}
+        <div className="hidden flex-wrap gap-2 sm:flex">
           {OPTIONS.map((o) => (
             <label
               key={o}
               className={cn(
-                "cursor-pointer rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+                "cursor-pointer rounded-full border px-3.5 py-1.5 text-sm transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand",
                 picked === o ? "border-ink bg-ink text-white" : "border-line text-ink-muted hover:border-ink hover:text-ink",
               )}
             >
-              <input type="radio" name="service" value={o} checked={picked === o} onChange={() => setPicked(o)} className="sr-only" />
+              <input type="radio" name="service-choice" value={o} checked={picked === o} onChange={() => setPicked(o)} className="sr-only" />
               {o}
             </label>
           ))}

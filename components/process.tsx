@@ -66,8 +66,8 @@ function Step({
 }) {
   const at = index / Math.max(total - 1, 1);
   const on = useTransform(progress, [Math.max(at - 0.08, 0), at], [0, 1]);
-  const dotBg = useTransform(on, [0, 1], ["#ffffff", "#3a57f0"]);
-  const dotColor = useTransform(on, [0, 1], ["#3a57f0", "#ffffff"]);
+  const dotBg = useTransform(on, [0, 1], ["#ffffff", "#1590d0"]);
+  const dotColor = useTransform(on, [0, 1], ["#1590d0", "#ffffff"]);
   const cardOpacity = useTransform(on, [0, 1], [0.45, 1]);
 
   return (

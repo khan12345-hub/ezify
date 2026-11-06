@@ -22,9 +22,9 @@ const SOCIALS: { label: string; href: string; path: string }[] = [
 export function Footer() {
   return (
     <footer className="overflow-hidden border-t border-line bg-surface">
-      <div className="container grid gap-10 py-16 md:grid-cols-12">
-        <div className="md:col-span-5">
-          <Logo />
+      <div className="container grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="sm:col-span-2 lg:col-span-4">
+          <Logo className="h-12" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-muted">
             From winning new customers to balancing your books, our expert teams
             take care of the work that holds your business back. You focus on the
@@ -40,19 +40,19 @@ export function Footer() {
           </div>
         </div>
 
-        <FooterCol title="Company" className="md:col-span-2">
+        <FooterCol title="Company" className="lg:col-span-2">
           {COMPANY_LINKS.map((l) => (
             <li key={l.label}><Link href={l.href} className="hover:text-ink">{l.label}</Link></li>
           ))}
         </FooterCol>
 
-        <FooterCol title="Services" className="md:col-span-2">
+        <FooterCol title="Services" className="lg:col-span-3">
           {HOME_SERVICES.map((s) => (
-            <li key={s.title}><Link href="/#services" className="hover:text-ink">{s.title}</Link></li>
+            <li key={s.title} className="whitespace-nowrap"><Link href="/#services" className="hover:text-ink">{s.title}</Link></li>
           ))}
         </FooterCol>
 
-        <FooterCol title="Contact" className="md:col-span-3">
+        <FooterCol title="Contact" className="lg:col-span-3">
           <li><a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-ink">{CONTACT.phone}</a></li>
           <li><a href={`mailto:${CONTACT.email}`} className="hover:text-ink">{CONTACT.email}</a></li>
           <li><a href={`mailto:${CONTACT.careersEmail}`} className="hover:text-ink">{CONTACT.careersEmail}</a></li>
@@ -65,7 +65,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line">
-        <div className="container flex flex-col items-center justify-between gap-2 py-5 text-xs text-ink-muted sm:flex-row">
+        <div className="container flex flex-col items-center justify-between gap-2 pt-5 pb-24 text-xs text-ink-muted sm:flex-row lg:pb-5">
           <p>© 2026 Ezify SMC (Pvt.) Ltd. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="#" className="hover:text-ink">Privacy Policy</Link>

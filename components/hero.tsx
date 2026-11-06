@@ -109,7 +109,7 @@ export function Hero() {
 
         <motion.div {...rise(0.55)} className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Magnetic>
-            <Link href="/contact" className="btn btn-primary group shadow-[0_10px_30px_-10px_rgba(58,87,240,0.6)]">
+            <Link href="/contact" className="btn btn-primary group shadow-[0_10px_30px_-10px_rgba(21,144,208,0.6)]">
               Get a free quote
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
             </Link>
@@ -144,7 +144,7 @@ export function Hero() {
         >
           <motion.div
             style={reduce ? { borderRadius: 28 } : { scale, borderRadius: radius }}
-            className="relative aspect-[4/5] overflow-hidden bg-ink shadow-[0_50px_100px_-40px_rgba(21,23,28,0.45)] sm:aspect-[16/9] lg:aspect-[21/9]"
+            className="relative aspect-[4/5] overflow-hidden bg-ink shadow-[0_50px_100px_-40px_rgba(23,40,59,0.45)] sm:aspect-[16/9] lg:aspect-[21/9]"
           >
             <motion.video
               ref={videoRef}
@@ -296,7 +296,7 @@ function Float({
         initial={{ opacity: 0, y: 20, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, delay, ease }}
-        className="rounded-2xl border border-line bg-surface/95 shadow-[0_24px_60px_-20px_rgba(21,23,28,0.32)] backdrop-blur"
+        className="rounded-2xl border border-line bg-surface/95 shadow-[0_24px_60px_-20px_rgba(23,40,59,0.32)] backdrop-blur"
       >
         {children}
       </motion.div>
