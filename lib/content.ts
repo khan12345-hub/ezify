@@ -322,7 +322,7 @@ export const NAV = [
 
 export const CONTACT = {
   phone: "+92 329 5598556",
-  email: "hr@ezify.pk",
+  email: "info@ezify.pk",
   careersEmail: "careers@ezify.pk",
   address: "216/7, B Block, Broadway Commercial, DHA Phase 8, Lahore, Pakistan",
 };

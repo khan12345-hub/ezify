@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown, Loader2 } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { CONTACT } from "@/lib/content";
+import { sendContact } from "@/app/actions/contact";
 
 const OPTIONS = [
   "Digital Marketing",
@@ -18,6 +20,8 @@ const OPTIONS = [
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+  const [pending, startTransition] = useTransition();
   const [picked, setPicked] = useState<string>(OPTIONS[0]);
 
   if (sent) {
@@ -41,8 +45,19 @@ export function ContactForm() {
   return (
     <form
       onSubmit={(e) => {
+        // onSubmit (not action=) so typed values stay in the fields if sending fails
         e.preventDefault();
-        setSent(true);
+        const formData = new FormData(e.currentTarget);
+        setError("");
+        startTransition(async () => {
+          try {
+            const res = await sendContact(formData);
+            if (res.ok) setSent(true);
+            else setError(res.error);
+          } catch {
+            setError("Something went wrong. Please email or call us directly.");
+          }
+        });
       }}
       className="grid gap-4 sm:grid-cols-2"
     >
@@ -96,9 +111,17 @@ export function ContactForm() {
         aria-label="What would you like to improve in your business?"
         className="field resize-none sm:col-span-2"
       />
-      <button type="submit" className="btn btn-ink sm:col-span-2">
-        Request a consultation
-        <ArrowUpRight className="h-4 w-4" />
+      {/* honeypot for bots: hidden from people and screen readers */}
+      <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+      {error && (
+        <p role="alert" className="text-sm text-[#b4511f] sm:col-span-2">
+          {error}{" "}
+          <a href={`mailto:${CONTACT.email}`} className="underline">{CONTACT.email}</a>
+        </p>
+      )}
+      <button type="submit" disabled={pending} className="btn btn-ink sm:col-span-2 disabled:opacity-60">
+        {pending ? "Sending…" : "Request a consultation"}
+        {pending ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowUpRight className="h-4 w-4" />}
       </button>
     </form>
   );
