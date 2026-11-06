@@ -3,10 +3,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
-import { SERVICES } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
-const OPTIONS = [...SERVICES.map((s) => s.title), "Something else"];
+const OPTIONS = [
+  "Digital Marketing",
+  "Sales & Bidding",
+  "Data Automation",
+  "HR & Dispatch",
+  "E-Commerce",
+  "Accounts & Finance",
+  "IT Solutions",
+  "Something else",
+];
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -22,8 +30,10 @@ export function ContactForm() {
         <span className="grid h-14 w-14 place-items-center rounded-full bg-tint-mint text-[#16794f]">
           <Check className="h-7 w-7" />
         </span>
-        <h3 className="mt-5 text-2xl">Message sent!</h3>
-        <p className="mt-1 text-sm text-ink-muted">We&apos;ll get back to you within one business day.</p>
+        <h3 className="mt-5 text-2xl">Thank you</h3>
+        <p className="mt-1 max-w-sm text-sm text-ink-muted">
+          Your request has been received, and a member of our team will contact you within one business day.
+        </p>
       </motion.div>
     );
   }
@@ -53,11 +63,20 @@ export function ContactForm() {
           ))}
         </div>
       </fieldset>
-      <input name="name" required placeholder="Your name *" className="field" />
-      <input name="email" type="email" required placeholder="Email address *" className="field" />
-      <textarea name="message" rows={4} required placeholder="Tell us about your project…" className="field resize-none sm:col-span-2" />
+      <input name="name" required autoComplete="name" placeholder="Full name *" aria-label="Full name" className="field" />
+      <input name="email" type="email" required autoComplete="email" placeholder="Business email *" aria-label="Business email" className="field" />
+      <input name="company" autoComplete="organization" placeholder="Company name" aria-label="Company name" className="field" />
+      <input name="phone" type="tel" autoComplete="tel" placeholder="Phone number" aria-label="Phone number" className="field" />
+      <textarea
+        name="message"
+        rows={4}
+        required
+        placeholder="What would you like to improve in your business?"
+        aria-label="What would you like to improve in your business?"
+        className="field resize-none sm:col-span-2"
+      />
       <button type="submit" className="btn btn-ink sm:col-span-2">
-        Send message
+        Request a consultation
         <ArrowUpRight className="h-4 w-4" />
       </button>
     </form>

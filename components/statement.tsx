@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 const TEXT =
-  "We take care of the work that slows you down — your website, your store, your sales pipeline, your marketing and your books — so you can focus on running the business.";
+  "Behind every growing business is a team that shows up, figures it out and gets it done, every single day. We’re that team, so you can focus on what really matters, growing your business.";
 
 /** Words fill from faint to ink as the paragraph scrolls through the viewport. */
 export function Statement() {
@@ -33,7 +33,7 @@ export function Statement() {
 
 function Word({ children, progress, range }: { children: string; progress: MotionValue<number>; range: [number, number] }) {
   const opacity = useTransform(progress, range, [0.14, 1]);
-  const highlight = /website|store|sales|marketing|books/.test(children);
+  const highlight = /^(team|matters|growing)\b/.test(children);
   return (
     <span className="relative mr-[0.25em] inline-block">
       <motion.span style={{ opacity }} className={highlight ? "accent" : undefined}>

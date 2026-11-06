@@ -9,11 +9,11 @@ export function Faq() {
         <Reveal>
           <p className="eyebrow">FAQ</p>
           <h2 className="h-section mt-4">
-            Questions, <span className="accent">answered</span>
+            Everything you need to <span className="accent">know.</span>
           </h2>
           <p className="mt-5 max-w-sm text-ink-muted">
-            Can&apos;t find what you&apos;re looking for? Send us a message and
-            we&apos;ll get back to you within one business day.
+            Have a question that isn&rsquo;t covered here? Contact our team, and a
+            dedicated representative will respond within one business day.
           </p>
         </Reveal>
 

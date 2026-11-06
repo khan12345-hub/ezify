@@ -148,7 +148,14 @@
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .ticker { animation: ticker 40s linear infinite; }
 
+/* portfolio marquee rows: pause while hovered or keyboard-focused */
+.marquee { animation: ticker var(--marquee-duration, 60s) linear infinite; }
+.marquee-reverse { animation-direction: reverse; }
+.marquee-wrap:hover .marquee,
+.marquee-wrap:focus-within .marquee { animation-play-state: paused; }
+
 @media (prefers-reduced-motion: reduce) {
   .ticker { animation: none !important; }
+  .marquee { animation: none !important; }
   html { scroll-behavior: auto; }
 }

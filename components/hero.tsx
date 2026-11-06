@@ -12,7 +12,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import { ArrowUpRight, ShoppingBag, TrendingUp, Receipt, UserPlus, Pause, Play } from "lucide-react";
-import { STATS, SERVICES } from "@/lib/content";
+import { STATS, HOME_SERVICES as TICKER } from "@/lib/content";
 import { SplitWords } from "./motion/split-words";
 import { Magnetic } from "./motion/magnetic";
 import { Counter } from "./motion/counter";
@@ -94,17 +94,17 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2fbf71] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2fbf71]" />
           </span>
-          One team for your whole business
+          Growing businesses across the globe
         </motion.p>
 
         <h1 className="mx-auto mt-6 max-w-5xl text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.95]">
-          <SplitWords text="Your business," delay={0.1} />{" "}
-          <SplitWords text="handled." delay={0.3} wordClassName="accent pr-[0.06em]" />
+          <SplitWords text="Empowering Businesses." delay={0.1} />{" "}
+          <SplitWords text="Enabling Growth." delay={0.3} wordClassName="accent pr-[0.06em]" />
         </h1>
 
-        <motion.p {...rise(0.45)} className="mx-auto mt-6 max-w-xl text-[1.1rem] leading-relaxed text-ink-muted">
-          Websites, online stores, sales operations, marketing and accounting
-          — one expert team for everything that keeps your business growing.
+        <motion.p {...rise(0.45)} className="mx-auto mt-6 max-w-2xl text-[1.1rem] leading-relaxed text-ink-muted">
+          You&rsquo;ve got big plans for your business. We&rsquo;ve got the people to make them happen,
+          from your first lead to your last invoice, and everything in between.
         </motion.p>
 
         <motion.div {...rise(0.55)} className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -165,7 +165,7 @@ export function Hero() {
             {/* caption */}
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-8 sm:left-8 sm:right-8">
               <p className="max-w-sm text-left font-display text-xl font-medium leading-tight text-white sm:text-3xl">
-                Real people. Real work. <span className="font-serif italic">Every day.</span>
+                Dedicated teams, <span className="font-serif italic">always on.</span>
               </p>
               <button
                 type="button"
@@ -185,18 +185,24 @@ export function Hero() {
                 <ShoppingBag className="h-4 w-4" />
               </span>
               <div className="text-left">
-                <p className="text-sm font-semibold leading-tight">New order</p>
+                <p className="text-sm font-semibold leading-tight">New order received</p>
                 <p className="text-xs text-ink-muted">2 items · $61.00</p>
               </div>
+              <span className="ml-1 rounded-full bg-tint-mint px-2 py-0.5 text-[11px] font-medium text-[#16794f]">
+                Shipped
+              </span>
             </div>
           </Float>
 
           <Float px={px} py={py} depth={-24} delay={1.4} className="right-4 top-6 hidden w-52 sm:right-[-1rem] sm:top-12 sm:block lg:-right-8">
             <div className="p-4 text-left">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-medium text-ink-muted">Store visits</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-semibold leading-tight">Website visits</p>
+                  <p className="text-[11px] text-ink-muted">This week</p>
+                </div>
                 <span className="flex items-center gap-1 text-xs font-semibold text-[#16794f]">
-                  <TrendingUp className="h-3.5 w-3.5" /> Growing
+                  <TrendingUp className="h-3.5 w-3.5" /> 24%
                 </span>
               </div>
               <div className="mt-3 flex h-14 items-end gap-1.5">
@@ -216,12 +222,24 @@ export function Hero() {
           <Float px={px} py={py} depth={40} delay={1.6} className="-bottom-8 right-6 hidden w-64 sm:block lg:right-16">
             <div className="space-y-2.5 p-4 text-left">
               <div className="flex items-center gap-3">
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-tint-lilac text-[#6a3fd4]">
+                  <UserPlus className="h-4 w-4" />
+                </span>
+                <div className="flex-1">
+                  <p className="text-xs font-semibold leading-tight">New lead</p>
+                  <p className="text-[11px] text-ink-muted">From your ad campaign</p>
+                </div>
+                <span className="rounded-full bg-tint-peach px-2 py-0.5 text-[11px] font-medium text-[#b4511f]">
+                  Hot
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
                 <span className="grid h-8 w-8 place-items-center rounded-lg bg-tint-butter text-[#8a6100]">
                   <Receipt className="h-4 w-4" />
                 </span>
                 <div className="flex-1">
                   <p className="text-xs font-semibold leading-tight">Invoice #204</p>
-                  <p className="text-[11px] text-ink-muted">Accounting</p>
+                  <p className="text-[11px] text-ink-muted">Sent to client</p>
                 </div>
                 <motion.span
                   initial={{ opacity: 0, scale: 0.6 }}
@@ -232,15 +250,6 @@ export function Hero() {
                   Paid
                 </motion.span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-tint-lilac text-[#6a3fd4]">
-                  <UserPlus className="h-4 w-4" />
-                </span>
-                <div className="flex-1">
-                  <p className="text-xs font-semibold leading-tight">New lead</p>
-                  <p className="text-[11px] text-ink-muted">From your ad campaign</p>
-                </div>
-              </div>
             </div>
           </Float>
         </motion.div>
@@ -250,7 +259,7 @@ export function Hero() {
       <div className="relative border-y border-line bg-surface py-5">
         <div className="flex w-max ticker">
           {Array.from({ length: 4 }).flatMap((_, k) =>
-            SERVICES.map((s) => (
+            TICKER.map((s) => (
               <span key={`${k}-${s.title}`} className="flex items-center gap-4 pl-10 font-display text-xl font-medium text-ink/80">
                 <s.icon className="h-5 w-5 text-brand" />
                 {s.title}

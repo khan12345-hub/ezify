@@ -35,7 +35,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${sans.variable} ${display.variable} ${serif.variable}`}>
-      <body className="min-h-screen">
+      {/* browser extensions (e.g. ColorZilla) inject attributes on <body>; don't treat that as a hydration error */}
+      <body className="min-h-screen" suppressHydrationWarning>
         <SmoothScroll />
         <ScrollProgress />
         <Header />

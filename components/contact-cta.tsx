@@ -41,13 +41,14 @@ export function ContactCTA() {
 
           <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal>
-              <p className="text-sm font-semibold text-white/75">Get in touch</p>
+              <p className="text-sm font-semibold text-white/75">Contact us</p>
               <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,3.8rem)] text-white">
-                Let&apos;s build something <span className="font-serif font-normal italic">great</span> together.
+                Let&rsquo;s <span className="font-serif font-normal italic">grow</span> your business together.
               </h2>
               <p className="mt-5 max-w-md text-white/80">
-                Have a project in mind or need expert advice? Tell us a little
-                about it and the right team will reach out.
+                Tell us where your business stands today and where you want it to go.
+                Our team will review your requirements and connect you with the right
+                specialists within the same business day.
               </p>
               <ul className="mt-8 space-y-3 text-white">
                 <li className="flex items-center gap-3">

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
-import { SERVICES, TONES, type Service } from "@/lib/content";
+import { HOME_SERVICES as SERVICES, TONES, type Service } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
 import { SplitWords } from "./motion/split-words";
@@ -28,9 +28,9 @@ export function Services() {
           </div>
           <Reveal delay={0.1} className="md:col-span-5">
             <p className="text-ink-muted">
-              From your website and online store to sales, marketing and
-              accounts — pick one service or let us run them all, with one team
-              and one standard.
+              Every big step forward starts with one smart move. Pick the team your
+              business needs most right now, and watch what happens when the right
+              people take over. Most of our clients start with one, and grow from there.
             </p>
           </Reveal>
         </div>
@@ -100,7 +100,7 @@ function StackCard({
           </ul>
           <div className="mt-auto pt-10">
             <Link href="/contact" className="btn btn-ink group/btn">
-              Start a project
+              {s.cta ?? "Start a project"}
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:rotate-45" />
             </Link>
           </div>
@@ -121,6 +121,7 @@ function StackCard({
                 {s.visual === "pipeline" && <Pipeline bar={tone.bar} />}
                 {s.visual === "campaign" && <Campaign bar={tone.bar} />}
                 {s.visual === "ledger" && <Ledger />}
+                {s.visual === "automation" && <Automation bar={tone.bar} />}
               </div>
             </div>
           )}
@@ -189,6 +190,39 @@ function Campaign({ bar }: { bar: string }) {
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+function Automation({ bar }: { bar: string }) {
+  const steps = [
+    { label: "New form entry", meta: "Trigger" },
+    { label: "Clean & check data", meta: "Automated" },
+    { label: "Update sheet & CRM", meta: "Automated" },
+    { label: "Send weekly report", meta: "Done" },
+  ];
+  return (
+    <div>
+      <div className="flex items-center justify-between text-xs font-semibold">
+        <span>Workflow</span>
+        <span className="rounded-full bg-tint-mint px-2 py-0.5 text-[11px] font-medium text-[#16794f]">Running</span>
+      </div>
+      <ol className="mt-4 space-y-2">
+        {steps.map((st, i) => (
+          <motion.li
+            key={st.label}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+            className="flex items-center gap-3 rounded-xl bg-bg px-3 py-2.5 text-sm"
+          >
+            <span className={cn("h-2.5 w-2.5 shrink-0 rounded-full", i === steps.length - 1 ? bar : "bg-line")} />
+            <span className="font-medium">{st.label}</span>
+            <span className="ml-auto text-[11px] text-ink-muted">{st.meta}</span>
+          </motion.li>
+        ))}
+      </ol>
     </div>
   );
 }

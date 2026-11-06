@@ -7,19 +7,19 @@ export function Why() {
   return (
     <section className="section">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <p className="eyebrow">Why Ezify</p>
           </Reveal>
           <h2 className="h-section mt-4">
-            <SplitWords text="Built for" inView />{" "}
-            <SplitWords text="your" inView delay={0.12} wordClassName="accent pr-[0.06em]" />{" "}
-            <SplitWords text="success" inView delay={0.18} />
+            <SplitWords text="Every Business Challenge Deserves a" inView />{" "}
+            <SplitWords text="Smarter Solution." inView delay={0.2} wordClassName="accent pr-[0.06em]" />
           </h2>
           <Reveal delay={0.15}>
-            <p className="mt-5 text-ink-muted">
-              We combine expertise with a customer-first mindset to deliver
-              dependable results — every single time.
+            <p className="mx-auto mt-5 max-w-2xl text-ink-muted">
+              Slow sales, messy books, endless manual work, not enough hands. We&rsquo;ve
+              seen it all, and we&rsquo;ve built a team to fix every bit of it, so your
+              business can finally grow the way you planned.
             </p>
           </Reveal>
         </div>

@@ -16,7 +16,7 @@ export function Process() {
       <div className="container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <p className="eyebrow">How it works</p>
+            <p className="eyebrow">Our process</p>
           </Reveal>
           <h2 className="h-section mt-4">
             <SplitWords text="One call." inView />
@@ -27,8 +27,9 @@ export function Process() {
           </h2>
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-md text-ink-muted">
-              No juggling agencies and freelancers. Tell us what you need and
-              we bring the right specialists together — and keep them accountable.
+              You&rsquo;re already busy running a business. So we kept things simple.
+              You share what your business needs, and we take care of everything
+              after that, without the back-and-forth.
             </p>
           </Reveal>
         </div>

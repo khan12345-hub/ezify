@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Services } from "@/components/services";
-import { Brands } from "@/components/brands";
 import { ContactCTA } from "@/components/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Services & Brands — Ezify",
+  title: "Our Services — Ezify",
   description:
-    "Explore Ezify's services and trusted brands across web, e-commerce, sales, marketing and accounting.",
+    "Explore Ezify's seven expert departments: digital marketing, sales, data automation, HR & dispatch, e-commerce, accounts & finance and IT.",
 };
 
 export default function BusinessesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services & brands"
+        eyebrow="Our services"
         title={<>Everything your business needs, <span className="accent">in one place.</span></>}
-        subtitle="Websites, e-commerce, sales operations, marketing and accounting — one partner for all of it, plus a growing family of trusted brands."
+        subtitle="Seven expert departments, from marketing and sales to automation, HR, e-commerce, finance and IT — one partner for all of it."
       />
       <Services />
-      <Brands />
       <ContactCTA />
     </>
   );
