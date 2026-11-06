@@ -255,7 +255,6 @@ export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [
 ];
 
 /* ── Team ─────────────────────────────────────────────────────
-   Placeholder people — replace names, roles and bios with the real team.
    Add `photo: "/images/team/<file>.jpg"` to show a portrait instead of initials. */
 
 export type TeamMember = {
@@ -263,6 +262,8 @@ export type TeamMember = {
   role: string;
   /** A department title from HOME_SERVICES (drives the team filter); leaders use "Leadership". */
   dept: string;
+  /** Letters shown when there's no photo; defaults to the first letters of the name. */
+  initials?: string;
   /** Label shown on the member card; defaults to dept. */
   tag?: string;
   bio?: string;
@@ -272,36 +273,60 @@ export type TeamMember = {
 
 export const LEADERS: TeamMember[] = [
   {
-    name: "Ayesha Rahman",
+    name: "Danish Rehan",
+    initials: "DR",
     role: "Founder & CEO",
     dept: "Leadership",
-    bio: "Built Ezify so growing businesses would have one team they could trust with everything.",
+    bio: "Founded Ezify to give growing businesses one dedicated team they can trust with every part of their operations.",
   },
   {
-    name: "Omar Siddiqui",
-    role: "Head of Technology",
+    name: "Usman Masood",
+    initials: "UM",
+    role: "Branch Manager",
     dept: "Leadership",
-    bio: "Leads our web and e-commerce teams, from the first sketch to the day your site goes live.",
+    bio: "Oversees daily operations and keeps every department delivering on time, so clients always get consistent, quality results.",
   },
   {
-    name: "Hannah Clarke",
-    role: "Head of Operations",
+    name: "Adeel Saleem",
+    initials: "AS",
+    role: "Director",
     dept: "Leadership",
-    bio: "Makes sure sales, marketing and accounting run on time, every time, for every client.",
+    bio: "Guides Ezify’s growth strategy and client partnerships, making sure every business we serve gets real, measurable value.",
   },
 ];
 
 export const TEAM: TeamMember[] = [
-  { name: "Daniel Okafor", role: "Lead Developer", dept: "IT Solutions", tag: "Website Development" },
-  { name: "Sara Malik", role: "UI/UX Designer", dept: "IT Solutions", tag: "Website Development" },
-  { name: "Liam Turner", role: "E-Commerce Manager", dept: "Supply Chain & E-Commerce", tag: "E-Commerce" },
-  { name: "Fatima Noor", role: "Store Specialist", dept: "Supply Chain & E-Commerce", tag: "E-Commerce" },
-  { name: "Ethan Brooks", role: "Sales Ops Lead", dept: "Sales & Business Development", tag: "Sales Operations" },
-  { name: "Zara Hussain", role: "CRM Specialist", dept: "Sales & Business Development", tag: "Sales Operations" },
-  { name: "Maya Patel", role: "Marketing Lead", dept: "Digital Marketing", tag: "Marketing" },
-  { name: "Noah Williams", role: "Content & Social Media", dept: "Digital Marketing", tag: "Marketing" },
-  { name: "Imran Qureshi", role: "Senior Accountant", dept: "Accounts & Finance", tag: "Accounting" },
-  { name: "Chloe Evans", role: "Bookkeeper", dept: "Accounts & Finance", tag: "Accounting" },
+  // Digital Marketing
+  { name: "Rubab Haider", initials: "RH", role: "Head of Digital Marketing", dept: "Digital Marketing" },
+  { name: "Usman Javed", initials: "UJ", role: "Ads Manager", dept: "Digital Marketing" },
+  { name: "Mohsin Bashir", initials: "MB", role: "Graphics Manager", dept: "Digital Marketing" },
+  { name: "Haris Ahmad", initials: "HA", role: "Social Media Manager", dept: "Digital Marketing" },
+  { name: "Athar Hussain", initials: "AH", role: "SEO Manager", dept: "Digital Marketing" },
+  { name: "Fiaz Ahmad", initials: "FA", role: "SEO Specialist", dept: "Digital Marketing" },
+  { name: "Saad Ali", initials: "SH", role: "Influencer Marketer", dept: "Digital Marketing" },
+  { name: "Ahmad Ali Iftikhar", initials: "AI", role: "Graphic Designer", dept: "Digital Marketing" },
+  { name: "Ahmad Nadeem", initials: "AN", role: "Senior Content Writer", dept: "Digital Marketing" },
+  { name: "Mahnoor Jahanzaib", initials: "MJ", role: "Content Writer", dept: "Digital Marketing" },
+  // Sales & Business Development
+  { name: "Salman Tariq", initials: "ST", role: "Head of Business Development", dept: "Sales & Business Development" },
+  { name: "Arham Atif", initials: "AA", role: "Business Development Associate", dept: "Sales & Business Development" },
+  { name: "Muhammad Ali", initials: "MA", role: "Business Development Associate", dept: "Sales & Business Development" },
+  { name: "Kamran Ghulam", initials: "KG", role: "Business Development Associate", dept: "Sales & Business Development" },
+  { name: "Danish Iqbal", initials: "DI", role: "Business Development Associate", dept: "Sales & Business Development" },
+  { name: "Adeel Ahmad", initials: "AA", role: "Business Development Associate", dept: "Sales & Business Development" },
+  { name: "Ahmad Zia", initials: "AZ", role: "Business Development Associate", dept: "Sales & Business Development" },
+  // Data Automation
+  { name: "Usman Mahmood", initials: "UM", role: "Data Analyst", dept: "Data Automation" },
+  // Supply Chain & E-Commerce
+  { name: "Muhammad Tayyab", initials: "MT", role: "E-Commerce Expert", dept: "Supply Chain & E-Commerce" },
+  { name: "Muhammad Saad", initials: "MS", role: "Junior E-Commerce Expert", dept: "Supply Chain & E-Commerce" },
+  { name: "Ali Moeed Butt", initials: "AB", role: "Sourcing Specialist", dept: "Supply Chain & E-Commerce" },
+  { name: "Ambreen Naeem", initials: "AN", role: "E-Commerce Expert", dept: "Supply Chain & E-Commerce" },
+  { name: "Sahil Chaudhary", initials: "SC", role: "IT Manager", dept: "IT Solutions" },
+  { name: "Muhammad Awais", initials: "MA", role: "Network Engineer", dept: "IT Solutions" },
+  { name: "Muhammad Khan", initials: "MK", role: "Full Stack Developer", dept: "IT Solutions" },
+  { name: "Furqan Anwar", initials: "FA", role: "Full Stack Developer", dept: "IT Solutions" },
+  { name: "Jawad Mosharraf", initials: "JM", role: "WordPress Developer", dept: "IT Solutions" },
 ];
 
 export const VALUES: { icon: LucideIcon; title: string; desc: string }[] = [

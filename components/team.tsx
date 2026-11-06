@@ -59,7 +59,7 @@ function Avatar({ member, className, big, tone: toneKey }: { member: TeamMember;
               big ? "text-[clamp(4rem,9vw,7rem)]" : "text-5xl",
             )}
           >
-            {initials(member.name)}
+            {member.initials ?? initials(member.name)}
           </span>
         </>
       )}
@@ -125,7 +125,7 @@ export function TeamIntro() {
                     )}
                     title={m.name}
                   >
-                    {initials(m.name)}
+                    {m.initials ?? initials(m.name)}
                   </motion.span>
                 ))}
               </div>
