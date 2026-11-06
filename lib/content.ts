@@ -282,7 +282,7 @@ export const LEADERS: TeamMember[] = [
   {
     name: "Usman Masood",
     initials: "UM",
-    role: "Branch Manager",
+    role: "Branch Manager and Operations",
     dept: "Leadership",
     bio: "Oversees daily operations and keeps every department delivering on time, so clients always get consistent, quality results.",
   },
@@ -347,7 +347,7 @@ export const NAV = [
 
 export const CONTACT = {
   phone: "+92 329 5598556",
-  email: "info@ezify.pk",
+  email: "hr@ezify.pk",
   careersEmail: "careers@ezify.pk",
   address: "216/7, B Block, Broadway Commercial, DHA Phase 8, Lahore, Pakistan",
 };
