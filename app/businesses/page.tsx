@@ -7,9 +7,9 @@ import { ContactCTA } from "@/components/contact-cta";
 import { CONTACT } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Our Services — Ezify",
+  title: "Business Services: Marketing, Sales, IT & More | Ezify",
   description:
-    "Seven expert departments, one reliable partner: digital marketing, sales, data automation, HR & dispatch, e-commerce, accounts & finance and IT.",
+    "Explore Ezify’s 7 expert departments, from digital marketing and sales to data automation, e-commerce, accounting and IT. One partner for it all.",
 };
 
 export default function BusinessesPage() {

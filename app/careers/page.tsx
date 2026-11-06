@@ -6,8 +6,9 @@ import { ContactCTA } from "@/components/contact-cta";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Careers — Ezify",
-  description: "Join Ezify and build your career across web, e-commerce, sales, marketing and accounting.",
+  title: "Careers at Ezify | Join Our Team in Lahore",
+  description:
+    "Explore open roles at Ezify in marketing, sales, IT, e-commerce, finance and operations. Build your career working with clients across North America.",
 };
 
 const PERKS = [

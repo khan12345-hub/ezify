@@ -4,9 +4,9 @@ import { Brands } from "@/components/brands";
 import { ContactCTA } from "@/components/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Our Portfolio — Ezify",
+  title: "Our Portfolio | Brands We Help Grow | Ezify",
   description:
-    "The businesses Ezify powers across Canada and the USA, spanning staffing, logistics, security, real estate and more.",
+    "See the staffing, logistics, security, healthcare and e-commerce brands across Canada and the USA that rely on Ezify’s teams to grow.",
 };
 
 export default function PortfolioPage() {

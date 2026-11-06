@@ -6,8 +6,9 @@ import { CONTACT } from "@/lib/content";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Contact — Ezify",
-  description: "Get in touch with Ezify — services, partnerships and support.",
+  title: "Contact Ezify | Get a Free Business Consultation",
+  description:
+    "Get a free quote for marketing, sales, automation, HR, e-commerce, accounting or IT support, or apply to join our team. We reply within one business day.",
 };
 
 const INFO = [

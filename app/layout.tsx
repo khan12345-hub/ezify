@@ -28,9 +28,9 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Ezify — One Team for Your Whole Business",
+  title: "Ezify | Business Support Teams for Growing Companies",
   description:
-    "Ezify provides website development, e-commerce, sales operations, marketing and accounting services for businesses and individuals.",
+    "Marketing, sales, automation, HR, e-commerce, accounting and IT support from one dedicated team. Helping businesses across Canada and the USA grow.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
